@@ -1,0 +1,19 @@
+
+
+--------------------------------------------------
+|               Установка certbot                |
+--------------------------------------------------
+
+# sudo yum install epel-release mod_ssl
+# yum install certbot python2-certbot-apache
+# yum install certbot python2-certbot-nginx
+# nano /etc/crontab
+
+0 0,12 * * * root python -c 'import random; import time; time.sleep(random.random() * 3600)' && certbot renew -q
+
+
+--------------------------------------------------
+|                  Получение SSL                 |
+--------------------------------------------------
+
+# certbot --apache -m email@gmail.com -d domain.com -d www.domain.com
