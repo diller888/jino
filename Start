@@ -1,0 +1,29 @@
+--------------------------------------------------
+|                   Подготовка                   |
+--------------------------------------------------
+
+# yum update
+# yum -y install mc
+
+--------------------------------------------------
+|                   Установка sudo               |
+--------------------------------------------------
+
+# yum install sudo
+# adduser diller
+# passwd diller
+# gpasswd -a diller wheel
+# systemctl restart sshd.service
+
+--------------------------------------------------
+|              Установка firewalld               |
+--------------------------------------------------
+
+# sudo yum install firewalld
+# sudo systemctl enable firewalld
+# sudo systemctl start firewalld
+# firewall-cmd --permanent --zone=public --add-service=http
+# firewall-cmd --permanent --zone=public --add-service=https
+# sudo fuser -k 80/tcp
+# sudo fuser -k 443/tcp
+# systemctl status firewalld
